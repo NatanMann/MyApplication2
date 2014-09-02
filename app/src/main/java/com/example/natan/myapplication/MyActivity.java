@@ -1,17 +1,35 @@
 package com.example.natan.myapplication;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.provider.Telephony;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 
 public class MyActivity extends Activity {
+
+    private Button secondActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my);
+
+        secondActivity = (Button)findViewById(R.id.button);
+
+        secondActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MyActivity.this, SecondActivity.class);
+                startActivity(intent);
+                
+            }
+        });
+
     }
 
 
